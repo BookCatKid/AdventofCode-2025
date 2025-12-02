@@ -6,7 +6,6 @@ NUMBER_0_PART_1 = 0
 NUMBER_0_PART_2 = 0
 
 for move in moves:
-    previous_position = CURRENT_POSITION
     direction, steps = move[0], int(move[1:])
     for _ in range(steps):
         if direction == "R":
