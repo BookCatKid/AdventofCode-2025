@@ -1,26 +1,26 @@
 with open("day1input.txt") as f:
     moves = f.readlines()
 
-CURRENT_POSITION = 50
-NUMBER_0_PART_1 = 0
-NUMBER_0_PART_2 = 0
+current_position = 50
+zero_hits_part1 = 0
+zero_hits_part2 = 0
 
 for move in moves:
     direction, steps = move[0], int(move[1:])
     for _ in range(steps):
         if direction == "R":
-            CURRENT_POSITION += 1
-            if CURRENT_POSITION > 99:
-                CURRENT_POSITION = 0
+            current_position += 1
+            if current_position > 99:
+                current_position = 0
         elif direction == "L":
-            CURRENT_POSITION -= 1
-            if CURRENT_POSITION < 0:
-                CURRENT_POSITION = 99
-        if CURRENT_POSITION == 0:
-            NUMBER_0_PART_2 += 1
+            current_position -= 1
+            if current_position < 0:
+                current_position = 99
+        if current_position == 0:
+            zero_hits_part2 += 1
 
-    if CURRENT_POSITION == 0:
-        NUMBER_0_PART_1 += 1
+    if current_position == 0:
+        zero_hits_part1 += 1
 
-print("Total number of times position 0 was reached (Part 1):", NUMBER_0_PART_1)
-print("Total number of times position 0 was reached (Part 2):", NUMBER_0_PART_2)
+print("Total number of times position 0 was reached (Part 1):", zero_hits_part1)
+print("Total number of times position 0 was reached (Part 2):", zero_hits_part2)
