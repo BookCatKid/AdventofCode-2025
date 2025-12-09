@@ -35,8 +35,9 @@ combs_dist.sort(key=lambda x: x[0])
 # print(combs_dist)
 
 circuits = []
+last_two_boxes = []
 
-for combs in combs_dist[:1000]:
+for combs in combs_dist:
     if combs[1].circuit == combs[2].circuit and combs[1].circuit != None:
         continue
     elif combs[1].circuit and combs[2].circuit:
@@ -54,4 +55,6 @@ for combs in combs_dist[:1000]:
         circuit.add_box(combs[2])
         circuits.append(circuit)
 
-print("Total size of largest three circuits multiplied together (Part 1):", math.prod(sorted([len(circuit.boxes) for circuit in circuits], reverse=True)[:3]))
+    last_two_boxes = [combs[1], combs[2]]
+
+print("X coordinate of last two connected junction boxes multiplied together (Part 2):", last_two_boxes[0].pos[0] * last_two_boxes[1].pos[0])
