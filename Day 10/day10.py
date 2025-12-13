@@ -37,17 +37,15 @@ for i, indicator in enumerate(indicators):
 total_presses_2 = 0
 
 for i, joltage in enumerate(joltages):
-    buttons = button_lists[i]
-
     solver = Optimize()
 
-    button_vars = [Int(f'button_{idx}') for idx in range(len(buttons))]
+    button_vars = [Int(idx) for idx in range(len(button_lists[i]))]
     for b in button_vars:
         solver.add(b >= 0)
 
     for k in range(len(joltage)):
         buttons_affecting_k = []
-        for button_idx, button_indices in enumerate(buttons):
+        for button_idx, button_indices in enumerate(button_lists[i]):
             if k in button_indices:
                 buttons_affecting_k.append(button_vars[button_idx])
 
