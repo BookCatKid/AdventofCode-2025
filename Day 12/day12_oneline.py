@@ -1,0 +1,1 @@
+print("Total correct shapes:", sum(1 for grid in open("day12input.txt").read().strip().split("\n\n")[-1].split("\n") if eval(grid.split(": ")[0].replace("x", "*")) >= 9 * sum(int(x) for x in grid.split(": ")[1].split(" "))))
